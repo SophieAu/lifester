@@ -1,0 +1,16 @@
+# system files
+*.swp
+.DS_Store
+.vscode
+
+# python cache files
+*/__pycache__
+
+# asciinema files
+usage/*.json
+
+# build files
+build/*
+lifester\.egg-info/
+MANIFEST
+dist/*
