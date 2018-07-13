@@ -9,7 +9,7 @@ def filter_files_for_year(year):
     filtered_file_list = []
 
     for file in file_list:
-        if file[0:4] == year:
+        if int(file[0:4]) == int(year):
             filtered_file_list.append(file)
 
     return filtered_file_list
@@ -42,12 +42,13 @@ def load_years(years_in_range, year_specifier=None):
     filtered_file_list = []
 
     for year in years_in_range :
-        filtered_file_list.append(filter_files_for_year(year)) 
+        filtered_file_list += filter_files_for_year(year)
 
     return filtered_file_list
 
 
 def load_months(months_in_range, year_specifier):
+    months_in_range = [str(month).zfill(2) for month in months_in_range]
     file_list = filter_files_for_year(year_specifier)
 
     return filter_file_list_by(months_in_range, file_list, 5, 7)
@@ -81,7 +82,7 @@ def load(timeframe, dateStart, dateEnd, year_specifier=None):
     if timeframe != "all":
         if dateEnd == None : dateEnd = dateStart
         if year_specifier == None : year_specifier = datetime.now().strftime("%Y") 
-        timeframe_range = list(range(int(dateStart), int(dateEnd)+1))
+        timeframe_range = [str(moment) for moment in list(range(int(dateStart), int(dateEnd)+1))]
     
     filenamesToAnalyze = allowed_timeframes[timeframe](timeframe_range, year_specifier)
     filesToAnalyze = [lifester_dir + "/" + name for name in filenamesToAnalyze]
