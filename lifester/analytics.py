@@ -46,7 +46,7 @@ def analyze(files):
 
     print("Number of Days Tracked:     " + str(days_tracked))
     print("Of Those Workdays:          " + str(workdays_tracked))
-    print("Percentage of Days Tracked: " + str(percentage_of_days_tracked) + "%")
+    print("Percentage of Days Tracked: " + str(percentage_of_days_tracked) + " %")
 
     print()
     print("Total Hours Awake: "+str(round(total_time_awake/60, 2)))
@@ -55,7 +55,7 @@ def analyze(files):
     for category in times_all:
         if category == "sleep" : continue
         total_time = round(times_all[category]/60, 2)
-        total_time_string = "Total " + category.capitalize() + " Hours:"
+        total_time_string = "Total " + category.title() + " Hours:"
 
         total_time_table.append([total_time_string, total_time])
         
@@ -65,7 +65,7 @@ def analyze(files):
     for category in times_all:
         if category == "sleep" : continue
         percentage = int(round((times_all[category]/total_time_awake)*100, 2))
-        precentage_string = "Percentage " + category.capitalize() + ":"
+        precentage_string = "Percentage " + category.title() + ":"
         time_percentage_table.append([precentage_string, percentage, "%"])
     
     print(tabulate(time_percentage_table, headers=["", "", ""], tablefmt="plain"))
