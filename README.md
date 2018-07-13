@@ -7,7 +7,7 @@
 [![GitHub issues](https://img.shields.io/github/issues/sophieau/lifester.svg)](https://github.com/SophieAu/lifester/issues)
 [![license](https://img.shields.io/github/license/sophieau/lifester.svg)](https://github.com/SophieAu/lifester/blob/master/LICENSE)
 
-![](usage/lifester.gif)
+![](usage/lifester.png)
 
 lifester is a command line tool to track every miute of your life. Enter your schedule for the day and then analyze how much time you spent on things.
 
@@ -50,13 +50,15 @@ Lifester creates a `.lifester` folder in your home directory (`~/`) where it sav
     export LIFESTERPATH=/path/that/you/want
 
 ### Entering the Data For a Day
-![](usage/enter.gif)
+![](usage/enter.png)
 
 ### Analyzing Previously Entered Data
 ![](usage/analyze.png)
 
+Of course, subsituting `year` with `month` and `week` works too.
+
 ### Showing / Adding Categories
-![](usage/categories.gif)
+![](usage/categories.png)
 
 
 ## Troubleshooting
