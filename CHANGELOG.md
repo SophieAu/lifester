@@ -14,6 +14,7 @@ Possible change tags are: ``Added``, ``Changed``, ``Deprecated``, ``Removed``, `
 
 ## Fixed
 - sleep block at the end of the day not being added to json file
+- timeframe parsing not adhering to documentation
 
 
 ## [1.0.0] - 2018-07-13

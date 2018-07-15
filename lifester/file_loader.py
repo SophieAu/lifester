@@ -81,7 +81,11 @@ def load(timeframe, dateStart, dateEnd, year_specifier=None):
 
     if timeframe != "all":
         if dateEnd == None : dateEnd = dateStart
-        if year_specifier == None : year_specifier = datetime.now().strftime("%Y") 
+        if len(dateEnd) > 2 and year_specifier == None:
+            year_specifier = dateEnd
+            dateEnd = dateStart
+        if year_specifier == None : year_specifier = datetime.now().strftime("%Y")
+
         timeframe_range = [str(moment) for moment in list(range(int(dateStart), int(dateEnd)+1))]
     
     filenamesToAnalyze = allowed_timeframes[timeframe](timeframe_range, year_specifier)
