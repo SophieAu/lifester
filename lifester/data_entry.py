@@ -80,6 +80,12 @@ def enter_day_schedule():
         if category == "sleep":
             end_time = "24:00"
             comment = ""
+            # save event
+            event = {"start_time": start_time,
+                     "end_time": end_time,
+                     "category": category,
+                     "comment": comment}
+            schedule.append(event)
             break
 
         # get end_time
