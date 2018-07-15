@@ -99,9 +99,6 @@ def parse_schedule(day):
     return schedule
 
 
-
-
-
 def is_valid_time(input_time):
     time_regex = re.compile('^\d{2}:\d{2}$')
     return time_regex.match(input_time)
@@ -110,8 +107,6 @@ def is_valid_time(input_time):
 def is_valid_category(input_category):
     allowed_categories = read_category_list()
     return input_category in allowed_categories
-
-
 
 
 def export_to_json(day_data):
