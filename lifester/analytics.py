@@ -41,7 +41,7 @@ def analyze(files):
             if current_file["workday"]:
                 times_workday[time_block["category"]] += duration
 
-
+    average_sleep_per_day = ((total_time_tracked-total_time_awake)/days_tracked)
     percentage_of_days_tracked = int(round(days_tracked/31, 2)*100)
 
     print("Number of Days Tracked:     " + str(days_tracked))
@@ -50,6 +50,7 @@ def analyze(files):
 
     print()
     print("Total Hours Awake: "+str(round(total_time_awake/60, 2)))
+    print("Average Sleep Per Day: " + str(round(average_sleep_per_day/60, 2)))
 
     total_time_table = []
     for category in times_all:
