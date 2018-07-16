@@ -21,7 +21,7 @@ Possible change tags are: ``Added``, ``Changed``, ``Deprecated``, ``Removed``, `
 ## Removed
 - Percentage of time tracked from analytics to due bringing no value
 
-## [1.0.0] - 2018-07-13
+## 1.0.0 - 2018-07-13
 ### Added
 - Entering data via cli interface
 - Analyzing data on a yearly, monthly, or weekly basis
