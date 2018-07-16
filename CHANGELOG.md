@@ -8,6 +8,8 @@ Possible change tags are: ``Added``, ``Changed``, ``Deprecated``, ``Removed``, `
 
 
 ## [Unreleased]
+
+## [1.1.0] - 2018-07-16
 ### Added
 - Analytics include new value: average hours of sleep over timeframe
 - File parsing for my custom format (instead of manually entering vie `lifester enter`)
