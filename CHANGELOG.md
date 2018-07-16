@@ -9,12 +9,12 @@ Possible change tags are: ``Added``, ``Changed``, ``Deprecated``, ``Removed``, `
 
 ## [Unreleased]
 ### Added
-- analytics include new value: average hours of sleep over timeframe
-- file parsing for my custom format (instead of manually entering vie `lifester enter`)
+- Analytics include new value: average hours of sleep over timeframe
+- File parsing for my custom format (instead of manually entering vie `lifester enter`)
 
 ## Fixed
-- sleep block at the end of the day not being added to json file
-- timeframe parsing not adhering to documentation
+- Sleep block at the end of the day not being added to json file
+- Timeframe parsing not adhering to documentation
 
 ## Removed
 - Percentage of time tracked from analytics to due bringing no value
