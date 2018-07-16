@@ -16,6 +16,8 @@ Possible change tags are: ``Added``, ``Changed``, ``Deprecated``, ``Removed``, `
 - sleep block at the end of the day not being added to json file
 - timeframe parsing not adhering to documentation
 
+## Removed
+- Percentage of time tracked from analytics to due bringing no value
 
 ## [1.0.0] - 2018-07-13
 ### Added
