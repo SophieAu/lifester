@@ -1,6 +1,6 @@
 import os
 
-version = "1.0"
+version = "1.1.0"
 
 lifester_dir = os.getenv("LIFESTERPATH", ".")
 
