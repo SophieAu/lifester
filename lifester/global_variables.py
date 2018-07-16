@@ -8,6 +8,7 @@ help_text = """Lifester.
 
 Usage:
     lifester enter
+    lifester enter -f [file]
     lifester analyze all
     lifester analyze (year | month | week) <timeframe>
     lifester categories (add)
