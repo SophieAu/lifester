@@ -12,11 +12,15 @@ Possible change tags are: ``Added``, ``Changed``, ``Deprecated``, ``Removed``, `
 ## [1.1.0] - 2018-07-16
 ### Added
 - Analytics include new value: average hours of sleep over timeframe
-- File parsing for my custom format (instead of manually entering vie `lifester enter`)
+- File parsing works for my custom format (instead of manually entering vie `lifester enter`)
+- When hitting a fatal parsing error, lifester now quits (more) gracefully
 
 ## Fixed
-- Sleep block at the end of the day not being added to json file
-- Timeframe parsing not adhering to documentation
+- Sleep block at the end of the day was not being added to json file
+- Timeframe parsing did not adhere to documentation
+- Parser would duplicate last entry of the day instead of adding a sleep entry
+- Parser will no longer add a sleep entry when going bed at exactly midnight
+- Fatal bug when two lines followed each other
 
 ## Removed
 - Percentage of time tracked from analytics to due bringing no value
