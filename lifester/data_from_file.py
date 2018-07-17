@@ -69,17 +69,17 @@ def parse_schedule(day):
 
     first_line = True
     for original_line in day:
-        if line.count(": ") > 0:
         try:
             start_time, line = original_line.split(" - ", maxsplit=1)
             end_time, line = line.split(" ", maxsplit=1)
         except ValueError:
             print("The line \"" + original_line + "\" is invalid. Quitting parser...")
             exit(1)
+        
+        try:
             category, comment = line.split(": ", maxsplit=1)
-        else:
-            category = line
-            comment = ""
+        except ValueError:
+            category, comment = line, ""
 
         if first_line and start_time is not "00:00":
             schedule.append({"start_time": "00:00",
