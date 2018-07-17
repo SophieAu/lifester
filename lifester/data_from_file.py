@@ -94,8 +94,12 @@ def parse_schedule(day):
         schedule.append(event)
     else:
         if int(end_time[0:2]) > 10:
-            schedule.append(event)
-    
+            schedule.append({"start_time": end_time,
+                             "end_time": "24:00",
+                             "category": "sleep",
+                             "comment": ""
+                             })
+
     return schedule
 
 
