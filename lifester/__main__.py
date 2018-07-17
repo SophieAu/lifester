@@ -17,15 +17,17 @@ def parseCLIArgs(arguments):
     if len(arguments) == 0:
         print(help_text)
         return
-    
+
     command = arguments[0]
-    
+
     if command == "analyze":
         parse_analysis(*arguments[1:])
 
     elif command == "enter":
-        if len(arguments) > 2 and arguments[1] == "-f": get_input_from_file(arguments[2:])
-        else : user_entry_prompt()
+        if len(arguments) > 2 and arguments[1] == "-f":
+            get_input_from_file(arguments[2:])
+        else:
+            user_entry_prompt()
 
     elif command == "version":
         print(version)
@@ -48,7 +50,7 @@ def parse_category_admin(specifiers):
     if len(specifiers) == 0:
         print('\n'.join(read_category_list()))
         return
-    
+
     subcommand = specifiers[0]
 
     if subcommand == "add":

@@ -17,9 +17,10 @@ def user_entry_prompt():
 
 day_data = {}
 
+
 def enter_date():
     a_valid_date = False
-    while not a_valid_date :
+    while not a_valid_date:
         input_date = date_input()
 
         date_regex = re.compile('^\d{4}-\d{2}-\d{2}$')
@@ -29,6 +30,7 @@ def enter_date():
         else:
             print("This doesn't look like a valid date. Try again")
 
+
 def date_input():
     input_date = input("Date (YYYY-MM-DD): ")
     if input_date == "today":
@@ -36,7 +38,7 @@ def date_input():
 
     if input_date == "yesterday":
         input_date = (date.today() - timedelta(1)).isoformat()
-    
+
     return input_date
 
 
@@ -73,9 +75,9 @@ def enter_day_schedule():
 
         # get category
         is_valid_category = False
-        while not is_valid_category :
+        while not is_valid_category:
             category, is_valid_category = read_category()
-        
+
         # break if end of day
         if category == "sleep":
             end_time = "24:00"
@@ -90,12 +92,12 @@ def enter_day_schedule():
 
         # get end_time
         is_valid_end_time = False
-        while not is_valid_end_time :
+        while not is_valid_end_time:
             end_time, is_valid_end_time = read_end_time()
 
         # get comment
         comment = input(
-                "If want to expand, feel free to do so. Exit anytime by pressing <enter>\n")
+            "If want to expand, feel free to do so. Exit anytime by pressing <enter>\n")
 
         # save event
         event = {"start_time": start_time,
@@ -106,6 +108,7 @@ def enter_day_schedule():
 
     day_data["schedule"] = schedule
 
+
 def read_category():
     allowed_categories = read_category_list()
     category = input("What did you do next? ").lower()
@@ -114,8 +117,9 @@ def read_category():
     if category not in allowed_categories:
         is_valid = False
         print("This is not a valid category. Try again.")
-    
+
     return [category, is_valid]
+
 
 def read_end_time():
     time_regex = re.compile('^\d{2}:\d{2}$')
