@@ -22,7 +22,7 @@ def parse_file(file):
                 all_dates_strings.append(day_string)
             break
 
-        if current_line is "\n":
+        if current_line.isspace():
             all_dates_strings.append(day_string)
             day_string = []
             continue
@@ -32,7 +32,8 @@ def parse_file(file):
         all_dates_strings.append(day_string)
 
     for day in all_dates_strings:
-        parse_day(day)
+        if len(day) > 0:
+            parse_day(day)
 
 
 def parse_day(day):
