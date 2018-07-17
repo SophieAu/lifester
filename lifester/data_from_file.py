@@ -96,8 +96,10 @@ def parse_schedule(day):
                  "category": category,
                  "comment": comment}
         schedule.append(event)
+
     else:
-        if int(end_time[0:2]) > 10:
+        # add sleep at end of day (if end of day is before midnight and after 10am)
+        if 10 < int(end_time[0:2]) < 24:
             schedule.append({"start_time": end_time,
                              "end_time": "24:00",
                              "category": "sleep",
