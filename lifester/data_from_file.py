@@ -43,7 +43,7 @@ def parse_day(day):
     header_line = day[0].split()
     if header_line[0].upper() not in weekdays or len(header_line) is 1:
         return
-    
+
     day_data["date"], day_data["workday"] = parse_meta_info(header_line)
     day_data["schedule"] = parse_schedule(day[1:])
 
@@ -53,7 +53,7 @@ def parse_day(day):
 def parse_meta_info(header_line):
     day_date = parse_date(header_line[1])
     is_workday = len(header_line) > 2 and header_line[2] == "work"
-    
+
     return day_date, is_workday
 
 
@@ -61,6 +61,7 @@ def parse_date(input_date):
     date_regex = re.compile('^\d{4}-\d{2}-\d{2}$')
     if date_regex.match(input_date):
         return input_date
+
 
 def parse_schedule(day):
     schedule = []
@@ -73,9 +74,10 @@ def parse_schedule(day):
             start_time, line = original_line.split(" - ", maxsplit=1)
             end_time, line = line.split(" ", maxsplit=1)
         except ValueError:
-            print("The line \"" + original_line + "\" is invalid. Quitting parser...")
+            print("The line \"" + original_line +
+                  "\" is invalid. Quitting parser...")
             exit(1)
-        
+
         try:
             category, comment = line.split(": ", maxsplit=1)
         except ValueError:
@@ -83,20 +85,18 @@ def parse_schedule(day):
 
         if first_line and start_time is not "00:00":
             schedule.append({"start_time": "00:00",
-                 "end_time": start_time,
-                 "category": "sleep",
-                 "comment": ""})
+                             "end_time": start_time,
+                             "category": "sleep",
+                             "comment": ""})
         first_line = False
 
         if not (is_valid_time(start_time) and is_valid_time(end_time) and is_valid_category(category)):
             print("The line \"" + original_line + "\" is invalid")
-        
-        event = {"start_time": start_time,
-                 "end_time": end_time,
-                 "category": category,
-                 "comment": comment}
-        schedule.append(event)
 
+        schedule.append({"start_time": start_time,
+                         "end_time": end_time,
+                         "category": category,
+                         "comment": comment})
     else:
         # add sleep at end of day (if end of day is before midnight and after 10am)
         if 10 < int(end_time[0:2]) < 24:
@@ -105,7 +105,6 @@ def parse_schedule(day):
                              "category": "sleep",
                              "comment": ""
                              })
-
     return schedule
 
 
