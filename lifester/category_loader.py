@@ -22,8 +22,11 @@ def read_category_list():
         create_category_file(file_path)
 
     with open(file_path) as file:
-        categories = [line.rstrip('\n') for line in file]
-
+        for line in file:
+            line = line.rstrip('\n')
+            if line != "":
+                categories.append(line)
+    
     return categories
 
 
