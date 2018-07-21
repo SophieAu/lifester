@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name         = 'lifester',
-    version      = '1.1.0',
+    version      = '1.2.0',
     author       = 'Sophie Au',
     author_email = 'some.person@web.de',
     license      = 'MIT',
