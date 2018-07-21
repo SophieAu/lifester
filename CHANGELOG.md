@@ -8,11 +8,13 @@ Possible change tags are: ``Added``, ``Changed``, ``Deprecated``, ``Removed``, `
 
 
 ## [Unreleased]
+
+## [1.2.0] - 2018-07-21
 ### Added
 - When hitting a fatal parsing error, lifester now quits (more) gracefully
 - Analytics now include total hours awake
 
-## Fixed
+### Fixed
 - Parser would duplicate last entry of the day instead of adding a sleep entry
 - Parser will no longer add a sleep entry when going bed at exactly midnight
 - Fatal bug when two lines followed each other
@@ -25,11 +27,11 @@ Possible change tags are: ``Added``, ``Changed``, ``Deprecated``, ``Removed``, `
 - Analytics include new value: average hours of sleep over timeframe
 - File parsing works for my custom format (instead of manually entering vie `lifester enter`)
 
-## Fixed
+### Fixed
 - Sleep block at the end of the day was not being added to json file
 - Timeframe parsing did not adhere to documentation
 
-## Removed
+### Removed
 - Percentage of time tracked from analytics to due bringing no value
 
 
@@ -41,5 +43,6 @@ Possible change tags are: ``Added``, ``Changed``, ``Deprecated``, ``Removed``, `
 - Adding categories
 
 
-[Unreleased]: https://github.com/sophieau/lifester/compare/v1.1.0...HEAD
+[Unreleased]: https://github.com/sophieau/lifester/compare/v1.2.0...HEAD
+[1.2.0]: https://github.com/sophieau/lifester/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/sophieau/lifester/compare/v1.0...v1.1.0
