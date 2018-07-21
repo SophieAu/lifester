@@ -44,11 +44,12 @@ def analyze(files):
 
     avg_sleep_per_day = ((total_time_tracked-total_time_awake)/days_tracked)
 
-    print("Number of Days Tracked:     " + str(days_tracked))
-    print("Of Those Workdays:          " + str(workdays_tracked))
+    print("Number of Days Tracked: " + str(days_tracked))
+    print("Of Those Workdays:      " + str(workdays_tracked))
+    print("Total Hours Tracked:    " + str(total_time_tracked))
 
     print()
-    print("Total Hours Awake: "+str(round(total_time_awake/60, 2)))
+    print("Total Hours Awake:     " + str(round(total_time_awake/60, 2)))
     print("Average Sleep Per Day: " + str(round(avg_sleep_per_day/60, 2)))
 
     total_time_table = []
