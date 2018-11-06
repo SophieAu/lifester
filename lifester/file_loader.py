@@ -2,7 +2,7 @@ import os
 import re
 from datetime import datetime
 
-from lifester.global_variables import lifester_dir
+from lifester.global_variables import LIFESTER_DIR
 
 
 def filter_files_for_year(year):
@@ -16,18 +16,18 @@ def filter_files_for_year(year):
     return filtered_file_list
 
 
-def filter_file_list_by(range, file_list, start_index, stop_index):
+def filter_file_list_by(date_range, file_list, start_index, stop_index):
     filtered_file_list = []
 
     for file in file_list:
-        if file[start_index:stop_index] in range:
+        if file[start_index:stop_index] in date_range:
             filtered_file_list.append(file)
 
     return filtered_file_list
 
 
 def load_all(timeframe_range=None, year_specifier=None):
-    file_list = os.listdir(lifester_dir)
+    file_list = os.listdir(LIFESTER_DIR)
     filename_regex = re.compile('^\d{4}-\d{2}-\d{2}.json$')
 
     filtered_file_list = []
@@ -69,30 +69,30 @@ def load_weeks(weeks_in_range, year_specifier):
     return filter_file_list_by(dates_in_weeks, file_list, 0, 10)
 
 
-allowed_timeframes = {"month": load_months,
+ALLOWED_TIMEFRAMES = {"month": load_months,
                       "week": load_weeks, "year": load_years, "all": load_all}
 
 
-def load(timeframe, dateStart, dateEnd, year_specifier=None):
-    if timeframe not in allowed_timeframes:
+def load(timeframe, date_start, date_end, year_specifier=None):
+    if timeframe not in ALLOWED_TIMEFRAMES:
         print("Your concept of time might be different from mine...")
-        return
+        return []
 
     timeframe_range = []
 
     if timeframe != "all":
-        if dateEnd == None:
-            dateEnd = dateStart
-        if len(dateEnd) > 2 and year_specifier == None:
-            year_specifier = dateEnd
-            dateEnd = dateStart
-        if year_specifier == None:
+        if date_end is None:
+            date_end = date_start
+        if len(date_end) > 2 and year_specifier is None:
+            year_specifier = date_end
+            date_end = date_start
+        if year_specifier is None:
             year_specifier = datetime.now().strftime("%Y")
 
         timeframe_range = [str(moment) for moment in list(
-            range(int(dateStart), int(dateEnd)+1))]
+            range(int(date_start), int(date_end)+1))]
 
-    filenamesToAnalyze = allowed_timeframes[timeframe](
+    filenames_to_analyze = ALLOWED_TIMEFRAMES[timeframe](
         timeframe_range, year_specifier)
-    filesToAnalyze = [lifester_dir + "/" + name for name in filenamesToAnalyze]
-    return filesToAnalyze
+    files_to_analyze = [LIFESTER_DIR + "/" + name for name in filenames_to_analyze]
+    return files_to_analyze

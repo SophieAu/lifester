@@ -2,13 +2,13 @@ import re
 import json
 
 from lifester.category_loader import read_category_list
-from lifester.global_variables import lifester_dir
+from lifester.global_variables import LIFESTER_DIR
 
 
 def get_input_from_file(file_paths):
     for file in file_paths:
-        with open(file) as currentFile:
-            parse_file(currentFile)
+        with open(file) as current_file:
+            parse_file(current_file)
 
 
 def parse_file(file):
@@ -18,7 +18,7 @@ def parse_file(file):
     for current_line in file:
 
         if current_line == "EOF\n":
-            if len(day_string) > 0:
+            if day_string:
                 all_dates_strings.append(day_string)
             break
 
@@ -32,7 +32,7 @@ def parse_file(file):
         all_dates_strings.append(day_string)
 
     for day in all_dates_strings:
-        if len(day) > 0:
+        if day:
             parse_day(day)
 
 
@@ -98,28 +98,25 @@ def parse_schedule(day):
                          "end_time": end_time,
                          "category": category,
                          "comment": comment})
-    else:
-        # add sleep at end of day (if end of day is before midnight and after 10am)
-        if 10 < int(end_time[0:2]) < 24:
-            schedule.append({"start_time": end_time,
-                             "end_time": "24:00",
-                             "category": "sleep",
-                             "comment": ""
-                             })
+
+    # add sleep at end of day (if end of day is before midnight and after 10am)
+    if 10 < int(end_time[0:2]) < 24:
+        schedule.append({"start_time": end_time,
+                        "end_time": "24:00",
+                        "category": "sleep",
+                        "comment": ""
+                        })
     return schedule
 
 
 def is_valid_time(input_time):
-    time_regex = re.compile('^\d{2}:\d{2}$')
-    return time_regex.match(input_time)
+    return re.compile('^\d{2}:\d{2}$').match(input_time)
 
 
 def is_valid_category(input_category):
-    allowed_categories = read_category_list()
-    return input_category in allowed_categories
+    return input_category in read_category_list()
 
 
 def export_to_json(day_data):
-    json_string = json.dumps(day_data)
-    file = open(lifester_dir + "/" + day_data["date"] + ".json", "w")
-    file.write(json_string)
+    file = open(LIFESTER_DIR + "/" + day_data["date"] + ".json", "w")
+    file.write(json.dumps(day_data))

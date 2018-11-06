@@ -2,7 +2,7 @@ import sys
 
 from lifester.analytics import analyze
 from lifester.file_loader import load
-from lifester.global_variables import help_text, version
+from lifester.global_variables import HELP_TEXT, VERSION
 from lifester.category_loader import read_category_list, add_categories
 from lifester.data_from_file import get_input_from_file
 
@@ -12,9 +12,9 @@ def main():
     exit(0)
 
 
-def parseCLIArgs(arguments):
-    if len(arguments) == 0:
-        print(help_text)
+def parse_cli_args(arguments):
+    if not arguments:
+        print(HELP_TEXT)
         return
 
     command = arguments[0]
@@ -25,25 +25,25 @@ def parseCLIArgs(arguments):
     elif command == "enter" and len(arguments) > 1:
         get_input_from_file(arguments[1:])
 
-    elif command == "version":
-        print(version)
+    elif command == "VERSION":
+        print(VERSION)
 
     elif command == "categories":
         parse_category_admin(arguments[1:])
 
     else:
-        print(help_text)
+        print(HELP_TEXT)
 
 
-def parse_analysis(timeframe=None, rangeStart=None, rangeEnd=None, yearSpecifier=None):
-    selected_timeframe = load(timeframe, rangeStart, rangeEnd, yearSpecifier)
+def parse_analysis(timeframe=None, range_start=None, range_end=None, year_specifier=None):
+    selected_timeframe = load(timeframe, range_start, range_end, year_specifier)
 
     if selected_timeframe is not None:
         analyze(selected_timeframe)
 
 
 def parse_category_admin(specifiers):
-    if len(specifiers) == 0:
+    if not specifiers:
         print('\n'.join(read_category_list()))
         return
 

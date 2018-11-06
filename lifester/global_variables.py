@@ -1,10 +1,10 @@
 import os
 
-version = "1.2.0"
+VERSION = "1.2.0"
 
-lifester_dir = os.getenv("LIFESTERPATH", ".")
+LIFESTER_DIR = os.getenv("LIFESTERPATH", ".")
 
-help_text = """Lifester.
+HELP_TEXT = """Lifester.
 
 Usage:
     lifester enter [file]

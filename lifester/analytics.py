@@ -6,7 +6,7 @@ from lifester.category_loader import read_category_list
 
 
 def analyze(files):
-    if len(files) == 0:
+    if not files:
         print("There's no data for that time frame")
         return
 

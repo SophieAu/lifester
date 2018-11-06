@@ -1,9 +1,8 @@
-import io
 import os.path
 
-from lifester.global_variables import lifester_dir
+from lifester.global_variables import LIFESTER_DIR
 
-default_categories = '''sleep
+DEFAULT_CATEGORIES = '''sleep
 sports
 admin
 socializing
@@ -16,7 +15,7 @@ waste time
 
 def read_category_list():
     categories = []
-    file_path = lifester_dir + "/categories.txt"
+    file_path = LIFESTER_DIR + "/categories.txt"
 
     if not os.path.isfile(file_path):
         create_category_file(file_path)
@@ -26,19 +25,19 @@ def read_category_list():
             line = line.rstrip('\n')
             if line != "":
                 categories.append(line)
-    
+
     return categories
 
 
 def create_category_file(file_path):
     with open(file_path, "w+") as file:
-        file.write(default_categories)
+        file.write(DEFAULT_CATEGORIES)
 
 
 def add_categories(new_categories):
     old_categories = read_category_list()
 
-    with open(lifester_dir + "/categories.txt", "a") as file:
+    with open(LIFESTER_DIR + "/categories.txt", "a") as file:
         for category in new_categories:
             if category not in old_categories:
                 file.write(category + "\n")
