@@ -22,7 +22,7 @@ def parse_cli_args(arguments):
     if command == "analyze":
         parse_analysis(*arguments[1:])
 
-    elif command == "enter" and len(arguments) > 1:
+    elif command == "add" and len(arguments) > 1:
         get_input_from_file(arguments[1:])
 
     elif command == "VERSION":
