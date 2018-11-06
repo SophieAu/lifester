@@ -1,16 +1,22 @@
 import sys
+import os
 
 from lifester.analytics import analyze
 from lifester.file_loader import load
-from lifester.global_variables import HELP_TEXT, VERSION
+from lifester.global_variables import HELP_TEXT, VERSION, LIFESTER_DIR
 from lifester.category_loader import read_category_list, add_categories
 from lifester.data_from_file import get_input_from_file
 
 
 def main():
-    parseCLIArgs(sys.argv[1:])
+    ensure_path()
+
+    parse_cli_args(sys.argv[1:])
     exit(0)
 
+def ensure_path():
+    if not os.access(LIFESTER_DIR, os.R_OK):
+        os.makedirs(LIFESTER_DIR)
 
 def parse_cli_args(arguments):
     if not arguments:
