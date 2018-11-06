@@ -1,7 +1,6 @@
 import sys
 
 from lifester.analytics import analyze
-from lifester.data_entry import user_entry_prompt
 from lifester.file_loader import load
 from lifester.global_variables import help_text, version
 from lifester.category_loader import read_category_list, add_categories
@@ -23,11 +22,8 @@ def parseCLIArgs(arguments):
     if command == "analyze":
         parse_analysis(*arguments[1:])
 
-    elif command == "enter":
-        if len(arguments) > 2 and arguments[1] == "-f":
-            get_input_from_file(arguments[2:])
-        else:
-            user_entry_prompt()
+    elif command == "enter" and len(arguments) > 1:
+        get_input_from_file(arguments[1:])
 
     elif command == "version":
         print(version)

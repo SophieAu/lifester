@@ -7,8 +7,7 @@ lifester_dir = os.getenv("LIFESTERPATH", ".")
 help_text = """Lifester.
 
 Usage:
-    lifester enter
-    lifester enter -f [file]
+    lifester enter [file]
     lifester analyze all
     lifester analyze (year | month | week) <timeframe>
     lifester categories (add)
