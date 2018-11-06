@@ -9,7 +9,7 @@ setup(
     author       = 'Sophie Au',
     author_email = 'some.person@web.de',
     license      = 'MIT',
-    description  = 'very minute of your life. On the command line.',
+    description  = 'Every minute of your life. On the command line.',
     long_description = long_description,
     long_description_content_type = "text/markdown",
     keywords     = ['command-line-tool', 'productivity'],
