@@ -12,5 +12,5 @@ usage/*.json
 # build files
 build/*
 lifester\.egg-info/
-MANIFEST
 dist/*
+test*.sh
