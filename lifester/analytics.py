@@ -46,7 +46,7 @@ def analyze(files):
 
     print("Number of Days Tracked: " + str(days_tracked))
     print("Of Those Workdays:      " + str(workdays_tracked))
-    print("Total Hours Tracked:    " + str(total_time_tracked))
+    print("Total Hours Tracked:    " + str(total_time_tracked/60))
 
     print()
     print("Total Hours Awake:     " + str(round(total_time_awake/60, 2)))
