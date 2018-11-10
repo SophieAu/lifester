@@ -23,8 +23,6 @@ lifester is available on [PyPI](https://pypi.python.org/pypi/lifester). This is 
 pip3 install lifester
 ```
 
-If you want to install lifester from source, have a look [here](#install-from-source).
-
 
 ## Setup
 No further setting up needed. The first time you run lifester, it will create a ``.lifester`` directory in your home folder (if it does not already exist) and create a ``categories.txt`` file which saves all the categories your time blocks can have.
