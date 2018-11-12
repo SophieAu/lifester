@@ -8,6 +8,15 @@ Possible change tags are: ``Added``, ``Changed``, ``Deprecated``, ``Removed``, `
 
 
 ## [Unreleased]
+### Fixed
+- Fix total hours tracked actually showing hours instead of minutes
+
+### Changed
+- Rename 'enter' command line argument to 'add'
+
+### Removed
+- Removed manual data entry
+
 
 ## [1.2.0] - 2018-07-21
 ### Added
