@@ -1,0 +1,13 @@
+[ ] show hours logged after parsing a file successfully
+[ ] use argparse
+[ ] seperate file loader etc. from logic -> better testability
+[ ] write all the tests
+[ ] stop help from printing twice
+[ ] rename default category 'socializing' to 'socialize'
+[ ] add check for end-time and start-time being equal in files
+[ ] rethink features
+[ ] use isoweek package
+[ ] do some general aesthetic refactoring
+[ ] a non-existant category should prompt for creation
+[ ] follow 12 factor cli app @W45
+[ ] add average bed + wakeup time @W45
